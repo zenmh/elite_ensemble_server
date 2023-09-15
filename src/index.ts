@@ -5,7 +5,7 @@ import app from "./app";
 
 let server: Server;
 
-const run = async () => {
+const main = async () => {
   try {
     await mongoose.connect(config.db_uri as string);
 
@@ -19,4 +19,4 @@ const run = async () => {
   }
 };
 
-run();
+main();
