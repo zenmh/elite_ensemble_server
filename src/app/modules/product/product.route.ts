@@ -17,5 +17,7 @@ router.post(
 // Delete
 
 // Read
+router.get("/:id", ProductController.getProduct);
+router.get("/", ProductController.getProducts);
 
 export const ProductRoutes = router;
