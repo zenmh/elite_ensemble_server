@@ -5,6 +5,7 @@ import sendResponse from "../../../shared/sendResponse";
 import { IProduct } from "./product.interface";
 import pick from "../../../shared/pick";
 import { pagination_fields } from "../../../constants/pagination";
+import { product_filterable_fields } from "./porduct.constant";
 
 const createProduct = catchAsync(async (req: Request, res: Response) => {
   const result = await ProductService.createProduct(req.body);
@@ -18,9 +19,10 @@ const createProduct = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getProducts = catchAsync(async (req: Request, res: Response) => {
+  const filter = pick(req.query, product_filterable_fields);
   const pagination_options = pick(req.query, pagination_fields);
 
-  const result = await ProductService.getProducts(pagination_options);
+  const result = await ProductService.getProducts(filter, pagination_options);
 
   sendResponse<IProduct[]>(res, {
     status_code: 200,

@@ -1,11 +1,13 @@
 const product_category: string[] = [
-  "CPU / Processor",
-  "Motherboard",
-  "RAM",
-  "Power Supply Unit",
-  "Storage Device",
-  "Monitor",
-  "Others",
+  "cpu_or_processor",
+  "motherboard",
+  "ram",
+  "power_supply_unit",
+  "storage_device",
+  "monitor",
+  "others",
 ];
 
-export { product_category };
+const product_filterable_fields: string[] = ["category"];
+
+export { product_category, product_filterable_fields };
